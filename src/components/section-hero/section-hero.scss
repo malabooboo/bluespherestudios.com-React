@@ -1,0 +1,88 @@
+@import '../../shared/scss/vars';
+@import '../../shared/scss/mixins';
+
+@mixin avatar-frame($size) {
+  height: $size;
+  width: $size;
+  border-radius: $size;
+}
+
+:local(.section-hero) {
+  padding: 90px 20px 20px;
+  background-color: $color-dark-gray;
+  text-align: center;
+  position: relative;
+
+  z-index: 2;
+
+  @include slanty-thing;
+
+  @include tablet {
+    padding: 130px 60px 60px;
+  }
+
+  &::before {
+    content: ' ';
+    width: 150%;
+    height: 300px;
+    background: rgba($color-black, .05);
+    position: absolute;
+    top: -150px;
+    left: -50px;
+    transform: rotate(-4deg);
+    z-index: 1;
+  }
+
+  &::after {
+    bottom: -200px;
+  }
+}
+
+:local(.avatar-frame) {
+  @include avatar-frame(80px);
+  margin: 0 auto;
+  overflow: hidden;
+  margin-bottom: 20px;
+  background-color: rgba(86, 96, 115, 1);
+  transform: scale(1) rotate(0deg);
+  transition: background-color 1s, transform 2s;
+
+  &:hover {
+    background-color: $color-blue-primary;
+    transform: scale(1.1) rotate(6deg);
+    transition: background-color 1s, transform .5s;
+  }
+
+  @include tablet {
+    @include avatar-frame(120px);
+  }
+
+  :local(.avatar) {
+    width: 85%;
+    position: relative;
+    top: 12px;
+
+    @include tablet {
+      top: 20px;
+    }
+  }
+}
+
+:local(.intro) {
+  margin-bottom: 0;
+  color: rgba($color-white, .8);
+  font-weight: 300;
+  font-size: 24px;
+
+  @include tablet {
+    font-size: 32px;
+  }
+
+  strong, span {
+    white-space: nowrap;
+  }
+}
+
+:local(.strikethrough) {
+  text-decoration: line-through;
+}

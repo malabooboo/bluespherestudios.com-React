@@ -1,0 +1,140 @@
+@import '../../shared/scss/vars';
+@import '../../shared/scss/mixins';
+
+$header-height: 70px;
+
+@mixin app-nav-animation {
+  transition: transform .3s ease-out;
+}
+
+:local(.header) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  width: 100%;
+  height: $header-height;
+  background-color: #223c6e;
+  color: $color-white;
+  transform: translateY(0);
+
+  @include tablet {
+    height: 70px;
+  }
+
+  @include app-nav-animation;
+}
+
+:local(.header--up) {
+  transform: translateY(-$header-height);
+
+  @include app-nav-animation;
+}
+
+:local(.site-width) {
+  display: flex;
+}
+
+:local(.logo) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	cursor: pointer;
+	
+	:local(.logo__img) {
+		display: block;
+		width: 50px;
+		height: 50px;
+		margin: 5px;
+	
+		@include tablet {
+			margin: 0 10px 0 0;
+		}
+
+		img {
+			width: 100%;
+		}
+	}
+
+  h1 {
+    margin-bottom: 0;
+    padding: 20px 0;
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-family: Oswald;
+    line-height: 1;
+    display: none;
+
+    @include tablet {
+      display: inline-block;
+    }
+  }
+}
+
+:local(.nav) {
+  flex-grow: 2;
+}
+
+:local(.global-nav) {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+  list-style: none;
+}
+
+:local(.nav-item) {
+  text-transform: uppercase;
+  font-size: 14px;
+
+  @include tablet {
+    font-size: 16px;
+  }
+  @include desktop {
+    font-size: 18px;
+  }
+
+  span {
+    display: block;
+    border-bottom: 1px solid #223c6e;
+  }
+
+  :local(.gnav-link),
+  :local(.gnav-link:link), 
+  :local(.gnav-link:visited),
+  :local(.gnav-link:hover),
+  :local(.gnav-link:active) {
+    color: rgba($color-white, .8);
+    text-decoration: none;
+  }
+
+  :local(.gnav-link) {
+    position: relative;
+    display: block;
+    margin: 5px 5px 5px;
+    padding: 5px 10px;
+    color: rgba($color-white, .6);
+    transition: color .3s;
+
+    @include tablet {
+      padding: 10px 20px;
+    }
+  }
+
+  :local(.gnav-link:hover) {
+    color: rgba($color-white, 1);
+    transition: color .3s;
+  }
+
+  &.selected {
+    span {
+      border-bottom: 1px solid rgba($color-white, .8);
+    }
+
+    :local(.gnav-link),
+    :local(.gnav-link:hover) {
+      color: rgba($color-white, 1);
+      transition: color .3s;
+    }
+  }
+}

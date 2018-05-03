@@ -1,0 +1,125 @@
+@mixin site-width {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+
+  @include desktop {
+    padding: 0;
+    max-width: 1000px;
+  }
+}
+
+@mixin section-padding {
+  padding: 20px;
+
+  @include tablet {
+    padding: 40px;
+  }
+
+  @include desktop {
+    padding: 60px;
+  }
+}
+
+@mixin primary-gradient {
+  background: #24C6DC;
+  background: -webkit-linear-gradient(to left, #514A9D, #24C6DC);
+  background: linear-gradient(to left, #514A9D, #24C6DC);
+}
+
+@mixin large-mobile {
+  @media screen and (min-width: 600px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin vertical-center {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@mixin font-antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($args...) {
+  -webkit-animation: $args;
+  animation: $args;
+}
+
+// Fade in animation for when a section comes into the viewport
+
+@mixin element-appear-resting {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@mixin element-appear-in($delay: 0s) {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity .5s linear $delay, transform .5s ease-out $delay;
+}
+
+@mixin work-grid-2-columns {
+  grid-template-columns: 47% 47%;
+  grid-gap: 6%;
+}
+
+@mixin work-grid-3-columns {
+  grid-template-columns: 32% 32% 32%;
+  grid-column-gap: 2%;
+  grid-template-rows: auto;
+  grid-row-gap: 10%;
+}
+
+@mixin slanty-thing {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: ' ';
+    width: 150%;
+    height: 300px;
+    background: rgba($color-black, .1);
+    position: absolute;
+    bottom: -215px;
+    left: 0;
+    -webkit-transform: rotate(-4deg);
+    transform: rotate(-4deg);
+    z-index: 1;
+  }
+
+  div {
+    position: relative;
+    z-index: 2;
+  }
+}
