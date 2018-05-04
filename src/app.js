@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import Hero from './components/section-hero/section-hero';
+import About from './components/section-about/section-about';
 import './app.scss';
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
         <Header scroll={this.state.scroll} />
         <main>
           <Hero />
+          <About />
         </main>
         <Footer />
       </div>

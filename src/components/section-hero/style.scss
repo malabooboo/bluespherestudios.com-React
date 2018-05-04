@@ -7,7 +7,7 @@
   border-radius: $size;
 }
 
-:local(.section-hero) {
+:local(.sectionHero) {
   padding: 90px 20px 20px;
   background-color: $color-dark-gray;
   text-align: center;
@@ -38,7 +38,7 @@
   }
 }
 
-:local(.avatar-frame) {
+:local(.avatarFrame) {
   @include avatar-frame(80px);
   margin: 0 auto;
   overflow: hidden;

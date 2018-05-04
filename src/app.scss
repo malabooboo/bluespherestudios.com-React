@@ -1,3 +1,92 @@
 @import './shared/scss/vars';
 @import './shared/scss/mixins';
 @import './shared/scss/base';
+
+@mixin slanty-thing {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: ' ';
+    width: 150%;
+    height: 300px;
+    background: rgba($color-black, .1);
+    position: absolute;
+    bottom: -215px;
+    left: 0;
+    -webkit-transform: rotate(-4deg);
+    transform: rotate(-4deg);
+    z-index: 1;
+  }
+
+  div {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+:host {
+  display: block;
+}
+
+section {
+  @include section-padding;
+
+  h2 {
+    margin: 0 0 25px 0;
+    text-transform: uppercase;
+  }
+}
+
+// Top level sections
+
+.hero {
+  padding: 90px 20px 20px;
+  background-color: $color-dark-gray;
+  text-align: center;
+
+  @include slanty-thing;
+
+  @include tablet {
+    padding: 130px 60px 60px;
+  }
+
+  &::before {
+    content: ' ';
+    width: 150%;
+    height: 300px;
+    background: rgba($color-black, .05);
+    position: absolute;
+    top: -150px;
+    left: -50px;
+    transform: rotate(-4deg);
+    z-index: 1;
+  }
+
+  &::after {
+    bottom: -200px;
+  }
+}
+
+.section-about {
+  position: relative;
+  background: $color-gray url(/assets/images/IMG_8192.jpg) no-repeat 50% 50% / cover;
+  -webkit-filter: saturate(.4);
+  filter: saturate(.4);
+}
+
+.section-work {
+  padding-bottom: 20px;
+}
+
+.section-contact {
+  background-color: $color-dark-gray;
+  color: $color-white;
+
+  @include slanty-thing;
+}
+
+.section-stats {
+  background-color: $color-gray;
+  @include slanty-thing;
+}

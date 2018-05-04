@@ -1,0 +1,79 @@
+@import '../../shared/scss/vars';
+@import '../../shared/scss/mixins';
+
+@mixin staggered-in-view-transition {
+  @for $i from 1 through 3 {
+    &:nth-child(#{$i}) {
+      @include element-appear-resting;
+      .in-view & {
+        @include element-appear-in(#{$i * .2}s);
+      }
+    }
+  }
+}
+
+:local(.sectionAbout) {
+  position: relative;
+  background: $color-gray url(/assets/images/IMG_8192.jpg) no-repeat 50% 50% / cover;
+  -webkit-filter: saturate(.4);
+  filter: saturate(.4);
+
+  :local(.siteWidth) {
+    background: rgba($color-black, .8);
+    margin-right: 0;
+    padding: 20px 40px;
+  
+    @include tablet {
+      width: 50%;
+    }
+  }
+}
+
+:local(.sectionAbout__heading) {
+  color: $color-white;
+
+  @include element-appear-resting;
+  :local(.inView) & {
+    @include element-appear-in();
+  }
+}
+
+:local(.sectionAbout__paragraph) {
+  position: relative;
+  z-index: 2;
+  color: $color-white;
+
+  @include element-appear-resting;
+  :local(.inView) & {
+    @include element-appear-in(.9s);
+  }
+
+  @include tablet {
+    font-size: 18px;
+  }
+
+  a {
+    color: $color-white;
+  }
+
+  // Stealth link
+  a[target="_blank"] {
+    padding: 0;
+    background: none;
+    text-decoration: none;
+  }
+
+  :local(.intro) {
+    color: $color-white;
+    font-size: 22px;
+    line-height: 1.2;
+  
+    @include tablet {
+      font-size: 32px;
+    }
+  }
+
+  :local(.sectionAbout__paragraph) {
+    @include staggered-in-view-transition;
+  }
+}
