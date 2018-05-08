@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './style.scss';
+import style from './section-hero.scss';
 
 export default class Hero extends React.Component {
   render(props) {

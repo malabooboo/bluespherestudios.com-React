@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import style from './style.scss';
+import style from './section-about.scss';
 
 export default class About extends React.Component {
   constructor() {
@@ -34,9 +34,7 @@ export default class About extends React.Component {
         <div className={`site-width ${style.siteWidth}`}>
           <h2 className={style.sectionAbout__heading}>About</h2>
           <p className={`${style.sectionAbout__paragraph} ${style.intro}`}>
-            I've been in the business of building websites <a href="https://www.amazon.com/HTML-World-Visual-QuickStart-Guide/dp/0201884488"
-              target="_blank"
-              rel="noopener noreferrer">since 1998</a>.
+            I've been in the business of building websites <a href="https://www.amazon.com/HTML-World-Visual-QuickStart-Guide/dp/0201884488">since 1998</a>.
           </p>
           <p className={style.sectionAbout__paragraph}>
             In those years I have seen the web change and evolve, and I am proud

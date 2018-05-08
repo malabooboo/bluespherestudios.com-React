@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './style.scss';
+import style from './header.scss';
 
 export default class Header extends React.Component {
   constructor() {
@@ -7,23 +7,28 @@ export default class Header extends React.Component {
     this.state = {
       currentScrollPosition: 0,
       scrollDirection: ''
-    }
+    };
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
-    // window.addEventListener('scroll', this.handleScroll(this.state));
-    window.addEventListener('scroll', () => {
-      const initialPosition = this.state.currentScrollPosition;
-      const newScrollPosition = document.documentElement.scrollTop;
-      
-      if (newScrollPosition < initialPosition) {
-        this.setState({scrollDirection: ''});
-      } else {
-      this.setState({scrollDirection: style.headerUp});
-      }
+    window.addEventListener('scroll', this.handleScroll);
+  }
 
-      this.setState({currentScrollPosition: newScrollPosition});
-    });
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll() {
+    const initialPosition = this.state.currentScrollPosition;
+    const newScrollPosition = document.documentElement.scrollTop;
+
+    if (newScrollPosition < initialPosition) {
+      this.setState({scrollDirection: ''});
+    } else {
+      this.setState({scrollDirection: style.headerUp});
+    }
+    this.setState({currentScrollPosition: newScrollPosition});
   }
 
   render() {
@@ -32,20 +37,25 @@ export default class Header extends React.Component {
         <div className={`site-width ${style.siteWidth}`}>
           <div className={style.logo}>
             <div className={style.logo__img}>
-              <img src="/assets/images/bss-logo.png" alt="Blue Sphere Studios logo" />
+              <img
+                src="/assets/images/bss-logo.png"
+                alt="Blue Sphere Studios logo"
+              />
             </div>
             <h1>Blue Sphere Studios</h1>
           </div>
           <nav className={style.nav}>
             <ul className={style.globalNav}>
               <li className={style.navItem}>
-                <span className={style.gnavLink}>Home</span>
+                <a href="#home" className={style.gnavLink}>Home</a>
               </li>
               <li className={style.navItem}>
-                <span className={style.gnavLink}>Work</span>
+                <a href="#work" className={style.gnavLink}>Work</a>
               </li>
               <li className={style.navItem}>
-                <span className={`${style.gnavLink} ${style.mobileHidden}`}>About</span>
+                <a href="#about" className={`${style.gnavLink} ${style.mobileHidden}`}>
+                  About
+                </a>
               </li>
             </ul>
           </nav>

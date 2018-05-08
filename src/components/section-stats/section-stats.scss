@@ -1,0 +1,54 @@
+@import '../../shared/scss/vars';
+@import '../../shared/scss/mixins';
+
+:local(.section-stats) {
+  background-color: $color-gray;
+  @include slanty-thing;
+}
+
+:local(.content) {
+  display: grid;
+  grid-template-columns: 32% 32% 32%;
+  grid-column-gap: 2%;
+  grid-template-rows: auto;
+  grid-row-gap: 10%;
+}
+
+:local(.titles) {
+  grid-column: 1 / span 3;
+
+  @include element-appear-resting;
+  :local(.inView) & {
+    @include element-appear-in();
+  }
+
+  @include tablet {
+    grid-column: 1;
+  }
+
+  h2 {
+    margin-bottom: 5px;
+  }
+}
+
+:local(.tags) {
+  list-style-type: none;
+  grid-column: 1 / span 3;
+
+  @include element-appear-resting;
+  :local(.inView) & {
+    @include element-appear-in(.3s);
+  }
+
+  @include tablet {
+    grid-column: 2 / span 3;
+  }
+
+  li {
+    display: inline-block;
+    padding: 3px 8px;
+    margin: 3px;
+    background: rgba($color-black, .3);
+    color: $color-white;
+  }  
+}

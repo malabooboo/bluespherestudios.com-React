@@ -3,29 +3,17 @@ import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import Hero from './components/section-hero/section-hero';
 import About from './components/section-about/section-about';
+import Stats from './components/section-stats/section-stats';
 import './app.scss';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      scroll: 0
-    };
-  }
-
-  componentDidMount() {
-    window.addEventListener('scroll', () => {
-      const scrollPosition = document.documentElement.scrollTop;
-      this.setState({scroll: scrollPosition});
-    });
-  }
-
   render() {
     return (
       <div className="app">
-        <Header scroll={this.state.scroll} />
+        <Header />
         <main>
           <Hero />
+          <Stats />
           <About />
         </main>
         <Footer />

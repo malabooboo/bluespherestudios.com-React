@@ -94,7 +94,7 @@ $header-height: 70px;
     font-size: 18px;
   }
 
-  span {
+  a {
     display: block;
     border-bottom: 1px solid #223c6e;
   }
@@ -116,14 +116,14 @@ $header-height: 70px;
     color: rgba($color-white, .6);
     transition: color .3s;
 
+    &:hover {
+      color: rgba($color-white, 1);
+      transition: color .3s;
+    }
+
     @include tablet {
       padding: 10px 20px;
     }
-  }
-
-  :local(.gnavLink:hover) {
-    color: rgba($color-white, 1);
-    transition: color .3s;
   }
 
   &.selected {

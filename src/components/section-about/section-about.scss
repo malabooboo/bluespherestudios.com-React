@@ -52,6 +52,20 @@
     font-size: 18px;
   }
 
+  &:local(.intro) {
+    color: $color-white;
+    font-size: 22px;
+    line-height: 1.2;
+
+    a {
+      color: $color-white;
+    }
+  
+    @include tablet {
+      font-size: 32px;
+    }
+  }
+
   a {
     color: $color-white;
   }
@@ -61,16 +75,6 @@
     padding: 0;
     background: none;
     text-decoration: none;
-  }
-
-  :local(.intro) {
-    color: $color-white;
-    font-size: 22px;
-    line-height: 1.2;
-  
-    @include tablet {
-      font-size: 32px;
-    }
   }
 
   :local(.sectionAbout__paragraph) {
