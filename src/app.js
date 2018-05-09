@@ -5,6 +5,8 @@ import Hero from './components/section-hero/section-hero';
 import PastWork from './components/section-past-work/section-past-work';
 import About from './components/section-about/section-about';
 import Stats from './components/section-stats/section-stats';
+import Contact from './components/section-contact/section-contact';
+import SvgAssets from './components/svg-assets/svg-assets';
 import './app.scss';
 
 class App extends Component {
@@ -17,8 +19,10 @@ class App extends Component {
           <PastWork />
           <Stats />
           <About />
+          <Contact />
         </main>
         <Footer />
+        <SvgAssets />
       </div>
     );
   }

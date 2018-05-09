@@ -1,0 +1,62 @@
+@import '../../shared/scss/vars';
+@import '../../shared/scss/mixins';
+
+:local(.sectionContact) {
+  background-color: $color-dark-gray;
+  color: $color-white;
+
+  @include slanty-thing;
+
+  h1, h2, h3, h4, h5, p, a {
+    color: $color-white;
+  }
+
+  /*
+  h2 {
+    @include element-appear-resting;
+    :local(.inView) & {
+      @include element-appear-in();
+    }
+  }
+*/
+  .elsewhere-links {
+    @include element-appear-resting;
+    :local(.inView) & {
+      @include element-appear-in(.3s);
+    }
+  }
+
+  p {
+    margin-top: 10px;
+  
+    @include element-appear-resting;
+    :local(.inView) & {
+      @include element-appear-in(.6s);
+    }
+  }
+}
+
+:local(.linkIcon),
+:local(.linkIcon) svg {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+}
+
+:local(.linkIcon) {
+  opacity: .75;
+  transition: opacity .3s;
+
+  &:hover {
+    opacity: 1;
+    transition: opacity .3s;
+  }
+}
+
+:local(.linkGithub) svg {
+  transform: scale(.9);
+}
+
+:local(.linkLinkedin) svg {
+  transform: scale(1.1);
+}

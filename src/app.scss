@@ -68,20 +68,8 @@ section {
   }
 }
 
-.section-about {
-  position: relative;
-  background: $color-gray url(/assets/images/IMG_8192.jpg) no-repeat 50% 50% / cover;
-  -webkit-filter: saturate(.4);
-  filter: saturate(.4);
-}
-
 .section-work {
   padding-bottom: 20px;
 }
 
-.section-contact {
-  background-color: $color-dark-gray;
-  color: $color-white;
 
-  @include slanty-thing;
-}
