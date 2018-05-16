@@ -1,36 +1,27 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import style from './section-about.scss';
 
 export default class About extends React.Component {
   constructor() {
     super();
     this.state = {
-      hasBeenInView: false,
-      // inViewClass: '',
-      inViewClass: style.inView,
-      inViewOffset: 0,
-      sectionScrollPosition: 0
+      inViewClass: style.inView
     };
   }
 
-  componentDidMount() {
-    this.setState({
-      sectionScrollPosition: ReactDOM.findDOMNode(this).offsetTop,
-      inViewOffset: window.innerHeight / 3
-    });
+  shouldComponentUpdate(nextProps, nextState) {
+    let shouldUpdate = false;
+    if (this.props.inView !== nextProps.inView) {
+      shouldUpdate = true;
+    }
+    return shouldUpdate;
   }
 
   render() {
-    if (
-      this.props.scroll > this.state.sectionScrollPosition - this.state.inViewOffset &&
-      !this.state.hasBeenInView
-    ) {
-      this.setState({inViewClass: style.inView, hasBeenInView: true});
-    }
-
+    const inViewClass = this.props.inView ? this.state.inViewClass : '';
+    
     return (
-      <section className={`${style.sectionAbout} ${this.state.inViewClass}`}>
+      <section className={`${style.sectionAbout} ${inViewClass}`}>
         <div className={`site-width ${style.siteWidth}`}>
           <h2 className={style.sectionAbout__heading}>About</h2>
           <p className={`${style.sectionAbout__paragraph} ${style.intro}`}>

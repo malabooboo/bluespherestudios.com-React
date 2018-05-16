@@ -1,29 +1,27 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import style from './section-stats.scss';
 
 export default class Stats extends React.Component {
   constructor() {
     super();
     this.state = {
-      hasBeenInView: false,
-      // inViewClass: '',
-      inViewClass: style.inView,
-      inViewOffset: 0,
-      sectionScrollPosition: 0
+      inViewClass: style.inView
     };
   }
 
-  componentDidMount() {
-    this.setState({
-      sectionScrollPosition: ReactDOM.findDOMNode(this).offsetTop,
-      inViewOffset: window.innerHeight / 3
-    });
+  shouldComponentUpdate(nextProps, nextState) {
+    let shouldUpdate = false;
+    if (this.props.inView !== nextProps.inView) {
+      shouldUpdate = true;
+    }
+    return shouldUpdate;
   }
 
   render(props) {
-    return(
-      <section className={`${style.sectionStats} ${this.state.inViewClass}`}>
+    const inViewClass = this.props.inView ? this.state.inViewClass : '';
+    
+    return (
+      <section className={`${style.sectionStats} ${inViewClass}`}>
         <div className="site-width">
           <div className={style.content}>
             <div className={style.titles}>

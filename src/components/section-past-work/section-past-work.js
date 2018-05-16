@@ -1,29 +1,28 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import style from './section-past-work.scss';
 
 export default class PastWork extends React.Component {
   constructor() {
     super();
     this.state = {
-      hasBeenInView: false,
-      // inViewClass: '',
-      inViewClass: style.inView,
-      inViewOffset: 0,
-      sectionScrollPosition: 0
+      inViewClass: style.inView
     };
   }
 
-  componentDidMount() {
-    this.setState({
-      sectionScrollPosition: ReactDOM.findDOMNode(this).offsetTop,
-      inViewOffset: window.innerHeight / 3
-    });
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('past work should component update');
+    let shouldUpdate = false;
+    if (this.props.inView !== nextProps.inView) {
+      shouldUpdate = true;
+    }
+    return shouldUpdate;
   }
 
-  render(props) {
+  render() {
+    const inViewClass = this.props.inView ? this.state.inViewClass : '';
+
     return(
-      <section className={`${style.pastWork} ${this.state.inViewClass}`}>
+      <section className={inViewClass}>
         <div className="site-width workContainer">
           <div className={style.secondaryContent}>
             <div className={style.secondaryContent__heading}>
