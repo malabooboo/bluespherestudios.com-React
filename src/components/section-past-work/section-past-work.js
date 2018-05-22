@@ -34,7 +34,7 @@ export default class PastWork extends React.Component {
                   <img className={style.image__image} src="/assets/images/filemaker-homepage.jpg" alt="FileMaker, Inc" />
                   <div className={style.logoOverlay}>
                     <svg className={style.logoOverlay__logo} width="120" height="142" viewBox="0 0 120 142" xmlns="http://www.w3.org/2000/svg">
-                      {/* <use xlink:href="#apple-logo"></use> */}
+                      <use xlinkHref="#apple-logo" />
                     </svg>
                   </div>
                 </div>
@@ -52,7 +52,7 @@ export default class PastWork extends React.Component {
                 <img className={style.image__image} src="/assets/images/mcafee-homepage.jpg" alt="McAfee" />
                 <div className={style.logoOverlay}>
                   <svg className={style.logoOverlay__logo} width="120" height="139" viewBox="0 0 120 139" xmlns="http://www.w3.org/2000/svg">
-                    {/* <use xlink:href="#mcafee-logo"></use> */}
+                    <use xlinkHref="#mcafee-logo" />
                   </svg>
                 </div>
               </div>

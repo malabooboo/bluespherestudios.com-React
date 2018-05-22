@@ -8,6 +8,7 @@ import Header from './components/header/header';
 import About from './components/section-about/section-about';
 import Contact from './components/section-contact/section-contact';
 import Hero from './components/section-hero/section-hero';
+import Work from './components/section-work/section-work';
 import PastWork from './components/section-past-work/section-past-work';
 import Stats from './components/section-stats/section-stats';
 import SvgAssets from './components/svg-assets/svg-assets';
@@ -50,6 +51,7 @@ class App extends Component {
         <Header />
         <main>
           <Hero />
+          <Work />
           <Waypoint onEnter={() => {this.onWaypointEnter('pastWork')}}
             bottomOffset={this.state.waypointOffset}>
               <div>

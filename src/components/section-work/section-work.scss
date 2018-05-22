@@ -1,0 +1,70 @@
+@import '../../shared/scss/vars';
+@import '../../shared/scss/mixins';
+
+:host {
+  display: block;
+
+  @include site-width;
+}
+
+:local(.intro) {
+  margin-bottom: 40px;
+}
+
+:local(.workLogo) {
+  display: block;
+  margin: 20px auto 10px;
+  width: auto;
+  height: 40px;
+  text-align: center;
+}
+
+:local(.carouselContent) {
+  display: grid;
+
+  @include work-grid-3-columns;
+}
+
+:local(.recentWork) {
+  margin-bottom: 10px;
+  grid-column: 1 / span 3;
+  text-align: center;
+
+  @include tablet {
+    grid-column: 1;
+    margin-bottom: 40px;
+    margin-left: 30px;
+    text-align: left;
+  }
+
+  li {
+    display: inline-block;
+    list-style: none;
+
+    @include tablet {
+      display: block;
+      list-style: disc;
+    }
+  }
+
+  a {
+    cursor: pointer;
+    display: block;
+    padding: 3px 10px;
+  }
+
+  a.active {
+    color: $color-black;
+    font-weight: 400;
+    cursor: auto;
+  }
+}
+
+:local(.carousel) {
+  position: relative;
+  grid-column: 1 / span 3;
+
+  @include tablet {
+    grid-column: 2 / span 2;
+  }
+}
