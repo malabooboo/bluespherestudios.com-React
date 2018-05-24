@@ -10,7 +10,6 @@ export default class PastWork extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    console.log('past work should component update');
     let shouldUpdate = false;
     if (this.props.inView !== nextProps.inView) {
       shouldUpdate = true;
