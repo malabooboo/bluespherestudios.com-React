@@ -47,13 +47,13 @@ export default class Header extends React.Component {
           <nav className={style.nav}>
             <ul className={style.globalNav}>
               <li className={style.navItem}>
-                <a href="#home" className={style.gnavLink}>Home</a>
+                <a href="#homeAnchor" className={style.gnavLink}>Home</a>
               </li>
               <li className={style.navItem}>
-                <a href="#work" className={style.gnavLink}>Work</a>
+                <a href="#pastWorkAnchor" className={style.gnavLink}>Work</a>
               </li>
               <li className={style.navItem}>
-                <a href="#about" className={`${style.gnavLink} ${style.mobileHidden}`}>
+                <a href="#aboutAnchor" className={`${style.gnavLink} ${style.mobileHidden}`}>
                   About
                 </a>
               </li>

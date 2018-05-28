@@ -2,6 +2,7 @@ import './app.scss';
 
 import React, {Component} from 'react';
 import Waypoint from 'react-waypoint';
+import ScrollableAnchor, {configureAnchors} from 'react-scrollable-anchor';
 
 import Footer from './components/footer/footer';
 import Header from './components/header/header';
@@ -12,6 +13,8 @@ import Work from './components/section-work/section-work';
 import PastWork from './components/section-past-work/section-past-work';
 import Stats from './components/section-stats/section-stats';
 import SvgAssets from './components/svg-assets/svg-assets';
+
+configureAnchors({scrollDuration: 500});
 
 class App extends Component {
   constructor() {
@@ -48,6 +51,7 @@ class App extends Component {
   render() {
     return (
       <div className='app'>
+        <ScrollableAnchor id={'homeAnchor'}><div></div></ScrollableAnchor>
         <Header />
         <main>
           <Hero />
@@ -55,7 +59,9 @@ class App extends Component {
           <Waypoint onEnter={() => {this.onWaypointEnter('pastWork')}}
             bottomOffset={this.state.waypointOffset}>
               <div>
-                <PastWork inView={this.state.pastWorkInView} />
+                <ScrollableAnchor id={'pastWorkAnchor'}>
+                  <PastWork inView={this.state.pastWorkInView} />
+                </ScrollableAnchor>
               </div>
           </Waypoint>
           <Waypoint onEnter={() => {this.onWaypointEnter('stats')}}
@@ -67,7 +73,9 @@ class App extends Component {
           <Waypoint onEnter={() => {this.onWaypointEnter('about')}}
             bottomOffset={this.state.waypointOffset}>
               <div>
-                <About inView={this.state.aboutInView} />
+                <ScrollableAnchor id={'aboutAnchor'}>
+                  <About inView={this.state.aboutInView} />
+                </ScrollableAnchor>
               </div>
           </Waypoint>
           <Waypoint onEnter={() => {this.onWaypointEnter('contact')}}
