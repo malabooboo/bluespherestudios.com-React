@@ -22,7 +22,7 @@ export default class PastWork extends React.Component {
 
     return(
       <section className={inViewClass}>
-        <div className="site-width workContainer">
+        <div className="site-width">
           <div className={style.secondaryContent}>
             <div className={style.secondaryContent__heading}>
               <h2>Past work</h2>

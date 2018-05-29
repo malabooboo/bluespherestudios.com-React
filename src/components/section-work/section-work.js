@@ -29,17 +29,37 @@ export default class Work extends React.Component {
 
     return(
       <section className={style.sectionWork}>
-        <div className="site-width work-container">
+        <div className="site-width">
           <h2>Work</h2>
           <div className={style.workGoogle}>
             <p className={style.intro}>Over the last {tenure} years as part of Google's Cloud and Brand Studio teams in London and Mountain View,
               I have contributed to many different projects, including...</p>
             <div className={style.carouselContent}>
               <ul className={style.recentWork}>
-                <li><a onClick={() => { this.setWork('google-earth')}}>Google Earth</a></li>
-                <li><a onClick={() => { this.setWork('qibla-finder')}}>Qibla Finder</a></li>
-                <li><a onClick={() => { this.setWork('petra')}}>Petra <span className="mobileHide">Treks / Petra VR</span></a></li>
-                <li><a onClick={() => { this.setWork('google-inbox')}}><span className="mobileHide">Google</span> Inbox</a></li>
+                <li>
+                  <a onClick={() => { this.setWork('google-earth')}}
+                    className={this.state.currentWork === 'google-earth' ? 'active' : ''}>
+                      Google Earth
+                  </a>
+                </li>
+                <li>
+                  <a onClick={() => { this.setWork('qibla-finder')}}
+                    className={this.state.currentWork === 'qibla-finder' ? 'active' : ''}>
+                      Qibla Finder
+                  </a>
+                </li>
+                <li>
+                  <a onClick={() => { this.setWork('petra')}}
+                    className={this.state.currentWork === 'petra' ? 'active' : ''}>
+                      Petra <span className="mobileHide">Treks / Petra VR</span>
+                  </a>
+                </li>
+                <li>
+                  <a onClick={() => { this.setWork('google-inbox')}}
+                    className={this.state.currentWork === 'google-inbox' ? 'active' : ''}>
+                      <span className="mobileHide">Google</span> Inbox
+                  </a>
+                </li>
               </ul>
               <div className={style.carousel}>
                 <WorkCarouselGoogleEarth currentWork={this.state.currentWork}></WorkCarouselGoogleEarth>
