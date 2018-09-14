@@ -2,7 +2,7 @@
   "name": "bss-react",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "https://www.bluespherestudios.com/react/",
+  "homepage": "https://react.bluespherestudios.com/",
   "dependencies": {
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
@@ -96,7 +96,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.9.3",
     "sass-loader": "^7.0.1"
   }
 }
